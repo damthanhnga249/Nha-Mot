@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thanh toán | Nhà Mọt</title>
+  <meta name="description" content="Nhà Mọt: hiệu sách trực tuyến, mở sách, mở cả thế giới.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/book-card.css">
+  <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="container page-main">
+    <nav aria-label="Đường dẫn"><ol class="breadcrumb"><li><a href="index.html">Trang chủ</a></li><li><a href="cart.html">Giỏ hàng</a></li><li><span aria-current="page">Thanh toán</span></li></ol></nav>
+    <h1 class="page-title">Thanh toán</h1>
+    <p class="page-sub">Điền thông tin nhận hàng để hoàn tất đơn sách của bạn.</p>
+
+    <div id="checkout-empty" hidden></div>
+    <form id="checkout-form" class="checkout-layout" novalidate>
+      <div class="checkout-main">
+        <section class="form-card" aria-labelledby="ship-info">
+          <div class="form-card-head">
+            <h2 id="ship-info">Thông tin nhận hàng</h2>
+            <p id="login-hint">Đã có tài khoản? <a class="link" href="login.html?next=checkout.html">Đăng nhập</a> để điền nhanh thông tin.</p>
+          </div>
+          <p class="muted" style="font-size:13px">Các trường có dấu <span style="color:var(--color-error)">*</span> là bắt buộc.</p>
+          <div class="field-row">
+            <div class="field"><label for="fullName">Họ và tên <span class="req">*</span></label><input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="Nguyễn Văn A"></div>
+            <div class="field"><label for="phone">Số điện thoại <span class="req">*</span></label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="0912 345 678"></div>
+          </div>
+          <div class="field"><label for="email">Email <span class="req">*</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="ten@email.com"><span class="hint">Chúng mình gửi thông tin đơn hàng đến email này.</span></div>
+          <div class="field-row">
+            <div class="field"><label for="province">Tỉnh / Thành phố <span class="req">*</span></label>
+              <select id="province" name="province" autocomplete="address-level1"><option value="">Chọn tỉnh / thành phố</option></select></div>
+            <div class="field"><label for="ward">Phường / Xã <span class="req">*</span></label><input id="ward" name="ward" type="text" autocomplete="address-level2" placeholder="Ví dụ: Phường Cát Linh"></div>
+          </div>
+          <div class="field"><label for="address">Địa chỉ cụ thể <span class="req">*</span></label><input id="address" name="address" type="text" autocomplete="street-address" placeholder="Số nhà, tên đường"></div>
+          <div class="field"><label for="note">Ghi chú (tùy chọn)</label><textarea id="note" name="note" placeholder="Ghi chú cho người giao hàng"></textarea></div>
+        </section>
+
+        <fieldset class="form-card" style="border:1px solid var(--color-border)">
+          <legend class="sr-only">Phương thức vận chuyển</legend>
+          <h2>Phương thức vận chuyển</h2>
+          <label class="option"><input type="radio" name="shipping" value="standard" checked><span class="option-body"><span class="option-title">Giao hàng tiêu chuẩn</span><span class="option-desc">Nhận hàng trong 2–4 ngày làm việc</span></span><span class="option-price">30.000đ</span></label>
+          <label class="option"><input type="radio" name="shipping" value="express"><span class="option-body"><span class="option-title">Giao hàng nhanh</span><span class="option-desc">Nhận hàng trong 1–2 ngày làm việc</span></span><span class="option-price">50.000đ</span></label>
+        </fieldset>
+
+        <fieldset class="form-card" style="border:1px solid var(--color-border)">
+          <legend class="sr-only">Phương thức thanh toán</legend>
+          <h2>Phương thức thanh toán</h2>
+          <label class="option"><input type="radio" name="payment" value="cod" checked><span class="option-body"><span class="option-title">Thanh toán khi nhận hàng (COD)</span><span class="option-desc">Thanh toán trực tiếp cho người giao hàng</span></span></label>
+          <label class="option"><input type="radio" name="payment" value="bank"><span class="option-body"><span class="option-title">Chuyển khoản ngân hàng</span><span class="option-desc">Thanh toán qua ngân hàng trước khi giao</span></span></label>
+        </fieldset>
+        <p><a class="link" href="cart.html">‹ Quay lại giỏ hàng</a></p>
+      </div>
+
+      <aside class="card checkout-summary" aria-label="Tóm tắt đơn hàng">
+        <h2>Tóm tắt đơn hàng</h2>
+        <p class="muted" id="sum-count" style="font-size:13px"></p>
+        <div class="mini-list" id="mini-list"></div>
+        <div class="sum-row"><span>Tạm tính</span><span id="sum-subtotal"></span></div>
+        <div class="sum-row"><span>Phí vận chuyển</span><span id="sum-shipping"></span></div>
+        <div class="sum-row total"><span>Tổng cộng</span><strong id="sum-total"></strong></div>
+        <p class="sum-note">Đã bao gồm thuế. Không có chi phí phát sinh khi nhận hàng.</p>
+        <label class="check" style="margin-top:var(--space-3)"><input type="checkbox" id="terms" name="terms"><span>Tôi đồng ý với điều khoản mua hàng của Nhà Mọt</span></label>
+        <button type="submit" class="btn btn-primary btn-block">Đặt hàng</button>
+        <p class="alert alert-note help-box"><span><strong>Cần hỗ trợ đặt hàng?</strong><br>Gọi 1900 6868 (8:00–21:00 mỗi ngày)<br>Email: hotro@nhamot.vn</span></p>
+      </aside>
+    </form>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/ui.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/validate.js" defer></script>
+  <script src="js/book-card.js" defer></script>
+  <script src="js/checkout.js" defer></script>
+</body>
+</html>

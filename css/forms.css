@@ -1,0 +1,32 @@
+/* forms.css — ô nhập, chọn, tích, thẻ chọn một, thông báo lỗi dưới từng ô */
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: var(--space-3); }
+.field label, .field .label { font-size: 14px; font-weight: 600; }
+.field .req { color: var(--color-error); }
+.field input, .field select, .field textarea { width: 100%; min-height: 44px; padding: 10px 12px; background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+.field textarea { min-height: 88px; resize: vertical; }
+.field input::placeholder, .field textarea::placeholder { color: #9A8D80; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px var(--color-primary-light); }
+.field.has-error input, .field.has-error select, .field.has-error textarea { border-color: var(--color-error); }
+.field .hint { font-size: 12px; line-height: 16px; color: var(--color-text-muted); }
+.field-error { font-size: 12px; line-height: 16px; color: var(--color-error); }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+.input-wrap { position: relative; }
+.input-wrap input { padding-right: 48px; }
+.input-wrap .toggle-pw { position: absolute; top: 0; right: 0; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: none; border: 0; color: var(--color-text-muted); }
+
+.check { display: flex; align-items: flex-start; gap: 10px; margin-bottom: var(--space-3); font-size: 14px; line-height: 20px; }
+.check input { flex: none; width: 18px; height: 18px; margin: 1px 0 0; accent-color: var(--color-primary); }
+.check.has-error { color: var(--color-error); }
+
+/* Thẻ chọn một (vận chuyển, thanh toán) và dòng lọc dạng radio */
+.option { position: relative; display: flex; align-items: flex-start; gap: 12px; padding: var(--space-3); margin-bottom: var(--space-2); background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; }
+.option:has(input:checked) { background: var(--color-primary-light); border-color: var(--color-primary); }
+.option:has(input:focus-visible) { outline: 3px solid var(--color-primary); outline-offset: 2px; }
+.option input { flex: none; width: 18px; height: 18px; margin-top: 3px; accent-color: var(--color-primary); }
+.option-body { flex: 1; }
+.option-title { display: block; font-weight: 600; }
+.option-desc { display: block; font-size: 13px; line-height: 18px; color: var(--color-text-muted); }
+.option-price { font-weight: 600; }
+.form-card { padding: var(--space-4); margin-bottom: var(--space-4); background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+.form-card h2 { font-size: 24px; line-height: 32px; }
+@media (max-width: 767px) { .field-row { grid-template-columns: 1fr; gap: 0; } .form-card { padding: var(--space-3); } }

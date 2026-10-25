@@ -1,0 +1,104 @@
+/* index.css — Trang chủ: banner (Swiper), thể loại, hai dải sách (Swiper), ba ô lợi ích */
+.home-section { margin-top: var(--space-6); }
+.section-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-4); }
+.section-title { display: flex; align-items: center; gap: var(--space-2); }
+.section-head h2 { margin: 0; }
+
+/* ---------- Banner slider ---------- */
+.hero-slider {
+  position: relative; margin-top: var(--space-4); overflow: hidden; border-radius: var(--radius-lg);
+  --swiper-theme-color: #fff; --swiper-navigation-color: #fff; --swiper-navigation-size: 20px;
+  --swiper-pagination-bullet-size: 10px; --swiper-pagination-bullet-horizontal-gap: 5px;
+  --swiper-pagination-bullet-inactive-color: #fff; --swiper-pagination-bullet-inactive-opacity: 0.5;
+}
+/* Chưa khởi động được Swiper (mất mạng) thì chỉ hiện banner đầu tiên */
+.hero-slider:not(.swiper-initialized) .swiper-slide:not(:first-child) { display: none; }
+.hero-slider .swiper-slide { height: auto; }
+
+.hero { --hero-bg: var(--color-footer); display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; height: 100%; background: var(--hero-bg); color: #fff; }
+.hero--new { --hero-bg: var(--color-primary-dark); }
+.hero--sale { --hero-bg: var(--color-accent); }
+.hero-text { padding: var(--space-6) var(--space-6) 72px; }
+.hero-text h1, .hero-title { max-width: 16em; margin-bottom: var(--space-3); font-size: 40px; line-height: 48px; color: #fff; }
+.hero-text p { margin: 0 0 var(--space-4); color: #F1E8DD; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.hero-media { position: relative; height: 100%; min-height: 320px; }
+.hero-cover { position: absolute; width: 30%; aspect-ratio: 2 / 3; overflow: hidden; background: var(--color-border); border-radius: var(--radius-sm); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); }
+.hero-cover img { width: 100%; height: 100%; object-fit: cover; }
+.hero-cover:nth-child(1) { left: 6%;  top: 14%; transform: rotate(-6deg); }
+.hero-cover:nth-child(2) { left: 35%; top: 6%; }
+.hero-cover:nth-child(3) { left: 64%; top: 14%; transform: rotate(6deg); }
+
+/* Mũi tên và chấm điều hướng */
+.hero-slider .swiper-button-prev, .hero-slider .swiper-button-next { width: 44px; height: 44px; background: rgba(0, 0, 0, 0.3); border-radius: 50%; }
+.hero-slider .swiper-button-prev::after, .hero-slider .swiper-button-next::after { font-size: 18px; font-weight: 700; }
+.hero-slider .swiper-button-prev:hover, .hero-slider .swiper-button-next:hover { background: rgba(0, 0, 0, 0.5); }
+.hero-slider .swiper-pagination { bottom: 18px; }
+.hero-slider .swiper-pagination-bullet { opacity: 0.5; }
+.hero-slider .swiper-pagination-bullet-active { opacity: 1; }
+
+/* Nút tạm dừng / phát */
+.hero-pause { position: absolute; right: 16px; bottom: 12px; z-index: 10; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; background: rgba(0, 0, 0, 0.3); border: 0; border-radius: 50%; color: #fff; }
+.hero-pause:hover { background: rgba(0, 0, 0, 0.5); }
+.hero-pause .icon-play, .hero-pause[aria-pressed="true"] .icon-pause { display: none; }
+.hero-pause[aria-pressed="true"] .icon-play { display: block; }
+
+/* ---------- Thể loại ---------- */
+.category-list { display: grid; grid-template-columns: repeat(8, 1fr); gap: var(--space-3); }
+.category-tile { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); padding: var(--space-3) var(--space-2); text-align: center; color: var(--color-primary); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+.category-tile:hover { background: var(--color-primary-light); }
+.category-name { font-size: 14px; font-weight: 600; line-height: 1.3; color: var(--color-text); }
+.category-count { font-size: 12px; color: var(--color-text-muted); }
+
+/* ---------- Dải sách (Swiper) ---------- */
+.book-swiper {
+  position: relative; overflow: hidden; padding: 8px 4px 24px; margin: -8px -4px -24px;   /* chừa chỗ cho bóng đổ khi trỏ vào thẻ */
+  --swiper-navigation-color: var(--color-primary); --swiper-navigation-size: 16px;
+}
+.book-swiper .swiper-slide { height: auto; }
+.book-swiper .book-card { height: 100%; }
+/* Chưa khởi động Swiper thì vẫn cuộn ngang được */
+.book-swiper:not(.swiper-initialized) .swiper-wrapper { display: flex; gap: 12px; overflow-x: auto; }
+.book-swiper:not(.swiper-initialized) .swiper-slide { flex: 0 0 200px; }
+.book-swiper .swiper-button-prev, .book-swiper .swiper-button-next { top: 42%; width: 40px; height: 40px; background: #fff; border: 1px solid var(--color-border); border-radius: 50%; box-shadow: var(--shadow-pop); }
+.book-swiper .swiper-button-prev::after, .book-swiper .swiper-button-next::after { font-size: 14px; font-weight: 700; }
+.book-swiper .swiper-button-disabled { opacity: 0; pointer-events: none; }
+
+/* ---------- Ba ô lợi ích ---------- */
+.usp-list { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+.usp-item { display: flex; flex-direction: column; gap: var(--space-1); padding: var(--space-4); color: var(--color-primary); }
+.usp-item + .usp-item { border-left: 1px solid var(--color-border); }
+.usp-item h3 { margin: 0; font: 600 16px/24px var(--font-body); color: var(--color-text); }
+.usp-item p { margin: 0; font-size: 14px; color: var(--color-text-muted); }
+
+@media (max-width: 1023px) { .category-list { grid-template-columns: repeat(4, 1fr); } .hero-text { padding: var(--space-5) var(--space-5) 64px; } }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 767px) {
+  .home-section { margin-top: var(--space-5); }
+
+  /* Banner tràn hết bề ngang: dải ảnh bìa nền màu ở trên, chữ và nút nằm dưới trên nền kem */
+  .hero-slider { margin-top: 0; margin-inline: calc(var(--gutter) * -1); border-radius: 0;
+    --swiper-theme-color: var(--color-primary); --swiper-pagination-bullet-inactive-color: var(--color-text-muted); --swiper-pagination-bullet-inactive-opacity: 0.4; }
+  .hero { display: flex; flex-direction: column; align-items: stretch; background: transparent; color: var(--color-text); }
+  .hero-media { order: -1; min-height: 200px; background: var(--hero-bg); }
+  .hero-text { padding: var(--space-4) var(--gutter) 56px; }
+  .hero-text h1, .hero-title { font-size: 32px; line-height: 40px; color: var(--color-text); }
+  .hero-text p { color: var(--color-text-muted); }
+  .hero .btn-light { background: var(--color-primary); color: #fff; }
+  .hero .btn-ghost { display: none; }
+  .hero-slider .swiper-button-prev, .hero-slider .swiper-button-next { display: none; }   /* trên điện thoại vuốt là chính */
+  .hero-slider .swiper-pagination { bottom: 22px; }
+  .hero-pause { right: var(--gutter); bottom: 14px; background: rgba(43, 33, 24, 0.08); color: var(--color-text); }
+
+  .category-list { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .category-tile { flex-direction: row; min-height: 44px; padding: 8px 14px; border-radius: var(--radius-pill); }
+  .category-tile svg, .category-count { display: none; }
+
+  /* Dải sách: kéo sang trái để xem thêm, thẻ sau lấp ló ở mép phải */
+  .book-swiper { margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); }
+  .book-swiper .swiper-button-prev, .book-swiper .swiper-button-next { display: none; }
+
+  .usp-list { grid-template-columns: 1fr; }
+  .usp-item + .usp-item { border-left: 0; border-top: 1px solid var(--color-border); }
+}

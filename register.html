@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đăng ký | Nhà Mọt</title>
+  <meta name="description" content="Nhà Mọt: hiệu sách trực tuyến, mở sách, mở cả thế giới.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/book-card.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="container page-main">
+    <nav aria-label="Đường dẫn"><ol class="breadcrumb"><li><a href="index.html">Trang chủ</a></li><li><span aria-current="page">Đăng ký</span></li></ol></nav>
+    <div class="auth-card">
+      <div class="auth-tabs"><a class="tab" href="login.html">Đăng nhập</a><a class="tab active" href="register.html" aria-current="page">Đăng ký</a></div>
+      <h1 class="sr-only">Đăng ký tài khoản</h1>
+      <form id="register-form" novalidate>
+        <div class="field"><label for="fullName">Họ và tên</label><input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="Nhập họ và tên của bạn"></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="Nhập email của bạn"></div>
+        <div class="field"><label for="password">Mật khẩu</label>
+          <div class="input-wrap"><input id="password" name="password" type="password" autocomplete="new-password" placeholder="Tạo mật khẩu"><button type="button" class="toggle-pw" aria-label="Hiện hoặc ẩn mật khẩu"></button></div>
+          <span class="hint">Tối thiểu 8 ký tự, gồm chữ và số.</span></div>
+        <div class="field"><label for="confirm">Nhập lại mật khẩu</label>
+          <div class="input-wrap"><input id="confirm" name="confirm" type="password" autocomplete="new-password" placeholder="Nhập lại mật khẩu của bạn"><button type="button" class="toggle-pw" aria-label="Hiện hoặc ẩn mật khẩu"></button></div></div>
+        <label class="check"><input type="checkbox" name="terms"><span>Tôi đồng ý với điều khoản sử dụng</span></label>
+        <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
+      </form>
+      <p class="auth-support muted">Cần hỗ trợ? Gọi 1900 6868</p>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/ui.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/validate.js" defer></script>
+  <script src="js/book-card.js" defer></script>
+  <script src="js/auth.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nhà Mọt | Mở sách, mở cả thế giới</title>
+  <meta name="description" content="Nhà Mọt: hiệu sách trực tuyến, mở sách, mở cả thế giới.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Thư viện Swiper (CSS) nạp TRƯỚC css của nhóm để css của nhóm ghi đè được -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/book-card.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container page-main">
+
+    <!-- 1. Banner: 3 slide (Swiper), tự chuyển sau 4,5 giây -->
+    <section class="hero-slider swiper" id="hero-slider" aria-roledescription="carousel" aria-label="Banner nổi bật">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="hero" aria-labelledby="hero-title">
+            <div class="hero-text">
+              <h1 id="hero-title">Khám phá thế giới qua từng trang sách</h1>
+              <p>Tìm cuốn sách dành riêng cho bạn hôm nay.</p>
+              <div class="hero-actions">
+                <a href="products.html" class="btn btn-light">Khám phá ngay</a>
+                <a href="products.html?view=best" class="btn btn-ghost">Xem sách bán chạy</a>
+              </div>
+            </div>
+            <div class="hero-media" aria-hidden="true">
+              <div class="hero-cover"><img src="images/books/1.jpg" alt=""></div>
+              <div class="hero-cover"><img src="images/books/5.jpg" alt=""></div>
+              <div class="hero-cover"><img src="images/books/18.jpg" alt=""></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="hero hero--new" aria-labelledby="hero-title-new">
+            <div class="hero-text">
+              <h2 class="hero-title" id="hero-title-new">Sách mới lên kệ mỗi tuần</h2>
+              <p>Những cuốn sách vừa về kho, đang chờ bạn mở trang đầu tiên.</p>
+              <div class="hero-actions">
+                <a href="products.html?view=new" class="btn btn-light">Xem sách mới</a>
+              </div>
+            </div>
+            <div class="hero-media" aria-hidden="true">
+              <div class="hero-cover"><img src="images/books/22.jpg" alt=""></div>
+              <div class="hero-cover"><img src="images/books/23.jpg" alt=""></div>
+              <div class="hero-cover"><img src="images/books/25.jpg" alt=""></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="hero hero--sale" aria-labelledby="hero-title-sale">
+            <div class="hero-text">
+              <h2 class="hero-title" id="hero-title-sale">Sách khuyến mãi, giảm đến <span data-promo-max>20</span>%</h2>
+              <p>Chọn sách hay với mức giá nhẹ nhàng hơn. Số lượng có hạn.</p>
+              <div class="hero-actions">
+                <a href="products.html?view=sale" class="btn btn-light">Xem khuyến mãi</a>
+              </div>
+            </div>
+            <div class="hero-media" aria-hidden="true">
+              <div class="hero-cover"><img src="images/books/1.jpg" alt=""></div>
+              <div class="hero-cover"><img src="images/books/24.jpg" alt=""></div>
+              <div class="hero-cover"><img src="images/books/11.jpg" alt=""></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+      <button type="button" class="hero-pause" id="hero-pause" aria-pressed="false" aria-label="Tạm dừng tự động chuyển banner">
+        <svg class="icon-pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+        <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>
+      </button>
+    </section>
+
+    <!-- 2. Thể loại -->
+    <section class="home-section" aria-labelledby="cat-title">
+      <div class="section-head">
+        <h2 id="cat-title">Bạn muốn đọc gì hôm nay?</h2>
+        <a class="link" href="products.html">Tất cả danh mục</a>
+      </div>
+      <div class="category-list" id="category-list"></div>
+    </section>
+
+    <!-- 3. Sách bán chạy (Swiper) -->
+    <section class="home-section" aria-labelledby="best-title">
+      <div class="section-head">
+        <div class="section-title"><h2 id="best-title">Sách bán chạy</h2><span class="badge badge-accent">Hot</span></div>
+        <a class="link" href="products.html?view=best">Xem tất cả</a>
+      </div>
+      <div class="swiper book-swiper" id="best-swiper" aria-label="Danh sách sách bán chạy">
+        <div class="swiper-wrapper" id="best-list"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+
+    <!-- 4. Sách mới phát hành (Swiper) -->
+    <section class="home-section" aria-labelledby="new-title">
+      <div class="section-head">
+        <div class="section-title"><h2 id="new-title">Sách mới phát hành</h2><span class="badge badge-success">Mới</span></div>
+        <a class="link" href="products.html?view=new">Xem tất cả</a>
+      </div>
+      <div class="swiper book-swiper" id="new-swiper" aria-label="Danh sách sách mới phát hành">
+        <div class="swiper-wrapper" id="new-list"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+
+    <!-- 5. Ba ô lợi ích -->
+    <section class="home-section" aria-label="Cam kết của Nhà Mọt">
+      <div class="usp-list">
+        <div class="usp-item">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          <h3>Sách chính hãng</h3><p>Cam kết 100% sách từ các nhà xuất bản uy tín.</p>
+        </div>
+        <div class="usp-item">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>
+          <h3>Giao hàng toàn quốc</h3><p>Đóng gói cẩn thận, giao đến trong 2–4 ngày.</p>
+        </div>
+        <div class="usp-item">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 00-14-4M4 4v4h4M4 13a8 8 0 0014 4M20 20v-4h-4"/></svg>
+          <h3>Đổi trả trong 7 ngày</h3><p>Hỗ trợ đổi sách lỗi in ấn, hư hỏng khi vận chuyển.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <!-- Thư viện Swiper (JS) phải nạp TRƯỚC home.js -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/validate.js" defer></script>
+  <script src="js/book-card.js" defer></script>
+  <script src="js/home.js" defer></script>
+</body>
+</html>

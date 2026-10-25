@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Danh mục sách | Nhà Mọt</title>
+  <meta name="description" content="Nhà Mọt: hiệu sách trực tuyến, mở sách, mở cả thế giới.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/book-card.css">
+  <link rel="stylesheet" href="css/products.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container page-main">
+    <nav aria-label="Đường dẫn"><ol class="breadcrumb" id="breadcrumb"></ol></nav>
+    <h1 class="page-title" id="page-title">Danh mục sách</h1>
+    <p class="page-sub" id="page-sub"></p>
+    <div class="chips" id="active-chips"></div>
+
+    <div class="products-layout">
+      <div class="drawer-backdrop" id="filters-backdrop" hidden></div>
+      <aside class="filters" id="filters" aria-label="Bộ lọc">
+        <div class="filters-head">
+          <h2>Bộ lọc</h2>
+          <button type="button" class="link" id="clear-filters">Xóa lọc</button>
+          <button type="button" class="drawer-close close-filters" id="close-filters" aria-label="Đóng bộ lọc">✕</button>
+        </div>
+        <fieldset><legend>Thể loại</legend><div id="category-options"></div></fieldset>
+        <fieldset><legend>Khoảng giá</legend><div id="price-options"></div></fieldset>
+        <button type="button" class="btn btn-primary btn-block" id="apply-filters">Áp dụng</button>
+      </aside>
+
+      <section class="results" aria-label="Danh sách sách">
+        <div class="results-bar">
+          <button type="button" class="btn btn-outline open-filters" id="open-filters">Bộ lọc</button>
+          <p class="result-count" id="result-count" aria-live="polite"></p>
+          <div class="sort">
+            <label for="sort">Sắp xếp theo</label>
+            <select id="sort">
+              <option value="popular">Phổ biến nhất</option>
+              <option value="newest">Mới nhất</option>
+              <option value="price-asc">Giá tăng dần</option>
+              <option value="price-desc">Giá giảm dần</option>
+              <option value="rating">Đánh giá cao</option>
+            </select>
+          </div>
+        </div>
+        <div class="book-grid" id="results"></div>
+        <nav class="pagination" id="pagination" aria-label="Phân trang"></nav>
+        <p class="alert alert-note search-tip" id="search-tip" hidden><span><strong>Chưa tìm được cuốn sách bạn muốn?</strong><br>Thử tìm bằng tên tác giả hoặc thể loại, hoặc gọi hotline 1900 6868 để được hỗ trợ.</span></p>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/ui.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/validate.js" defer></script>
+  <script src="js/book-card.js" defer></script>
+  <script src="js/products.js" defer></script>
+</body>
+</html>

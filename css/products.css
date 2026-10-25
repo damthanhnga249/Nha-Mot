@@ -1,0 +1,37 @@
+/* products.css — trang Danh mục sách: thanh lọc bên trái, lưới sách, phân trang */
+.products-layout { display: grid; grid-template-columns: 240px 1fr; gap: var(--space-4); align-items: start; margin-top: var(--space-4); }
+.filters { padding: var(--space-3) var(--space-3) var(--space-4); background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+.filters-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin-bottom: var(--space-3); padding-bottom: var(--space-3); border-bottom: 1px solid var(--color-border); }
+.filters-head h2 { margin: 0; font: 600 18px/24px var(--font-body); }
+.filters fieldset { margin: 0 0 var(--space-3); padding: 0 0 var(--space-3); border: 0; border-bottom: 1px solid var(--color-border); }
+.filters legend { padding: 0; margin-bottom: var(--space-2); font-size: 14px; font-weight: 600; }
+.filter-row { display: flex; align-items: center; gap: 10px; min-height: 32px; font-size: 14px; cursor: pointer; }
+.filter-row input { width: 16px; height: 16px; margin: 0; accent-color: var(--color-primary); }
+.close-filters, .open-filters { display: none; }
+
+.results-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-4); }
+.result-count { margin: 0; font-size: 14px; color: var(--color-text-muted); }
+.sort { display: flex; align-items: center; gap: var(--space-2); font-size: 14px; }
+.sort select { min-height: 40px; padding: 6px 32px 6px 12px; background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-sm); }
+.results .book-grid { grid-template-columns: repeat(4, 1fr); }
+.search-tip { margin-top: var(--space-5); }
+.results .empty-state { grid-column: 1 / -1; }
+.results .empty-state .btn { margin-top: var(--space-2); }
+
+@media (max-width: 1279px) { .results .book-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 1023px) { .products-layout { grid-template-columns: 200px 1fr; } .results .book-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 767px) {
+  .products-layout { display: block; }
+  .results .book-grid { grid-template-columns: repeat(2, 1fr); }
+  .open-filters, .close-filters { display: inline-flex; }
+  .results-bar { flex-wrap: wrap; }
+  .results-bar .result-count { order: -1; flex-basis: 100%; }
+  .open-filters { flex: 1; }
+  .sort { flex: 1; }
+  .sort label { display: none; }
+  .sort select { width: 100%; min-height: 44px; border-color: var(--color-text); border-radius: var(--radius-md); font-weight: 600; }
+  .filters { position: fixed; inset: 0 auto 0 0; z-index: 100; width: min(88vw, 340px); overflow-y: auto; border-radius: 0; transform: translateX(-100%); transition: transform 0.25s; }
+  .filters.open { transform: none; }
+  .close-filters { background: none; border: 0; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
+}
+@media (min-width: 768px) { #apply-filters { display: none; } }

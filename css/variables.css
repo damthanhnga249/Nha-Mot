@@ -1,0 +1,14 @@
+/* variables.css — bảng quy ước của cả website, lấy từ style guide (Figma). Đổi ở đây thì mọi trang đổi theo. */
+:root {
+  --color-bg: #FAF6F0;  --color-surface: #FFFFFF;  --color-border: #E4D9CB;
+  --color-text: #2B2118;  --color-text-muted: #6B5E52;
+  --color-primary: #7A4B2A;  --color-primary-dark: #5E3A1F;  --color-primary-light: #F3E9DD;
+  --color-accent: #C23B1F;  --color-success: #2E7D4F;  --color-error: #C62828;  --color-warning: #F2A900;
+  --color-footer: #3B2A1F;
+  --font-heading: 'Lora', serif;  --font-body: 'Be Vietnam Pro', sans-serif;
+  --space-1: 4px;  --space-2: 8px;  --space-3: 16px;  --space-4: 24px;  --space-5: 32px;  --space-6: 48px;  --space-7: 64px;
+  --radius-sm: 4px;  --radius-md: 8px;  --radius-lg: 16px;  --radius-pill: 999px;
+  --shadow-card: none;                                   /* thẻ phẳng, chỉ có viền 1px */
+  --shadow-pop: 0 4px 16px rgba(43, 33, 24, 0.10);      /* thẻ khi trỏ vào, hộp thoại, menu bật lên */
+  --container: 1280px;  --gutter: 16px;
+}
